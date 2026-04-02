@@ -71,7 +71,19 @@ class _LoginScreen2State extends State<LoginScreen2> {
               ),
               ElevatedButton(
                 // 단순 화면 이동 버튼 테스트
-                onPressed:() => Navigator.pushNamed(context, '/details'),
+                onPressed:() => Navigator.pushNamed(
+                  context,
+                  '/details',
+                  // 순서1 , 보내기 준비 작업
+                  // 보내기 작업2번, 이메일과, 패스워드 정보를 보내기.
+                  arguments: {
+                    'id': 123,
+                    'title': 'Flutter Pro',
+                    // 입력 받은 , 이메일 , 패스워드
+                    'email' : emailController.text,
+                    'password' : passwordController.text
+
+                  },),
                 child: const Text('임시 상세페이지 이동'),
               ),
             ],
@@ -82,30 +94,30 @@ class _LoginScreen2State extends State<LoginScreen2> {
   }
 
   // 다이얼로그창을 함수 분리. 리팩토링.
-void _showResultDialog() {
-  // 다이얼로그창 을 이용하기.
-  // 화면 중앙에 다이얼로그 뛰우기 작업.
-  showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('가입 정보 확인'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min, // 내용만큼만 높이 차지
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('이메일: ${emailController.text}'),
-            Text('패스워드: ${passwordController.text}'), // 마스킹 없이 실제값 출력됨
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context), // 창 닫기
-            child: const Text('확인'),
+  void _showResultDialog() {
+    // 다이얼로그창 을 이용하기.
+    // 화면 중앙에 다이얼로그 뛰우기 작업.
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('가입 정보 확인'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min, // 내용만큼만 높이 차지
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('이메일: ${emailController.text}'),
+              Text('패스워드: ${passwordController.text}'), // 마스킹 없이 실제값 출력됨
+            ],
           ),
-        ],
-      );
-    },
-  );
-}
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context), // 창 닫기
+              child: const Text('확인'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Center(
                 // child: FlutterLogo(size: 100)
                 child: Image.asset(
-                  'assets/images/picture4.jpg',
+                  'assets/images/picture2.jpg',
                   width: 200,
                   height: 200,
                   fit: BoxFit.contain,
