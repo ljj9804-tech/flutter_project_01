@@ -18,7 +18,7 @@ class _TabBarScreenState extends State<TabBarScreen>
     {'icon': Icons.home, 'label': '홈', 'color': Colors.blue},
     {'icon': Icons.search, 'label': '검색', 'color': Colors.green},
     {'icon': Icons.favorite, 'label': '즐겨찾기', 'color': Colors.red},
-    {'icon': Icons.person, 'label': '프로필', 'color': Colors.purple},
+    {'icon': Icons.person, 'label': '프로필', 'color': Colors.yellow},
   ];
 
   @override
